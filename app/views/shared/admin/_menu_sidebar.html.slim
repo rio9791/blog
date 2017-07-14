@@ -3,3 +3,11 @@ li class="#{is_active_path?('dashboard') ? 'active' : ''}"
   = link_to admin_dashboard_index_path do
     i.fa.fa-dashboard
     span Dashboard
+li class="#{is_active_path?('users') ? 'active' : ''}"
+  = link_to admin_users_path do
+    i.fa.fa-user
+    span Users
+li class="#{is_active_path?('posts') ? 'active' : ''}"
+  = link_to admin_posts_path do
+    i.fa.fa-book
+    span Posts

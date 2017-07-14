@@ -23,8 +23,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'summernote-rails'
 gem "font-awesome-rails"
 gem 'simple_form'
-# gem 'turbolinks'
+gem 'friendly_id', '~> 5.1.0'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 gem 'annotate'
+gem 'faker'
+gem "select2-rails"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
@@ -58,6 +62,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener'
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

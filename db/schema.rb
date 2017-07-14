@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713041559) do
+ActiveRecord::Schema.define(version: 20170714042008) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.json "properties"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20170713041559) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "content"
+    t.boolean "visible", default: true
+    t.string "slug"
   end
 
   create_table "roles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

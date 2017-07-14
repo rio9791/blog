@@ -3,40 +3,18 @@
     h1.page-header
       | Posts
 
-.row
-  .col-md-4.portfolio-item
-    a href="#"
-      img.img-responsive alt="" src="http://placehold.it/700x400" /
-    h3
-      a href="#"  Project Name
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-  .col-md-4.portfolio-item
-    a href="#"
-      img.img-responsive alt="" src="http://placehold.it/700x400" /
-    h3
-      a href="#"  Project Name
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
-  .col-md-4.portfolio-item
-    a href="#"
-      img.img-responsive alt="" src="http://placehold.it/700x400" /
-    h3
-      a href="#"  Project Name
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.
+- unless @posts.blank?
+  - @posts.in_groups_of(3).each do |group|
+    .row
+      - group.each do |item|
+        .col-md-4.portfolio-item
+          - if item
+            = link_to post_path(item) do
+              = image_tag(item.cover.url, class: 'img-responsive')
+            h3
+              = link_to item.title, post_path(item)
+            p= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(item.content)), length: 150, omission: '...')
 
 .row.text-center
   .col-lg-12
-    ul.pagination
-      li
-        a href="#"  &laquo;
-      li.active
-        a href="#"  1
-      li
-        a href="#"  2
-      li
-        a href="#"  3
-      li
-        a href="#"  4
-      li
-        a href="#"  5
-      li
-        a href="#"  &raquo;
+    = will_paginate @posts, renderer: BootstrapPagination::Rails

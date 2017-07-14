@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require summernote
+//= require select2
 //= require admin/bootstrap-datepicker
 //= require admin/app
 //= require admin/customs

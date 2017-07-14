@@ -1,0 +1,30 @@
+- if @user.errors.any?
+  .alert.alert-danger
+    button.close[type="button" data-dismiss="alert" aria-hidden="true"]
+      | ×
+    = pluralize(@user.errors.count, 'error')
+    |  encountered:
+    ul
+      - @user.errors.full_messages.each do |message|
+        li
+          = message
+= simple_form_for @user, as: :user, url: (@user.new_record? ? admin_users_path : admin_user_path(@user)), html: { class: 'form-horizontal', method: (@user.new_record? ? 'user' : 'put')} do |f|
+  .panel-body
+    .row
+      .col-lg-12
+        .col-md-6
+          = f.input :name, label: 'Nama', input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
+          = f.input :email, as: :email, input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
+          = f.input :password, label: 'Password', as: :password, input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
+          = f.input :password_confirmation, label: 'Konfirmasi Paswword', as: :password, input_html: { class: 'form-control' }
+
+  .panel-footer
+    = link_to admin_users_path, class: 'btn btn-default' do
+      i.fa.fa-undo Back
+    = f.submit 'Save', class: 'btn btn-success'
