@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  properties: 
+  cover: MyString
+  user_id: 
+
+two:
+  properties: 
+  cover: MyString
+  user_id: 
